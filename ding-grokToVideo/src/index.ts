@@ -14,6 +14,8 @@ fieldDecoratorKit.setDecorator({
         'refImage': '参考图片',
         'size': '视频尺寸',
         'seconds': '视频时长',
+        'videoPromptTips': '请输入视频编辑提示词',
+        'refImageTips': '请上传参考图片文件',
         'errorTips1': 'AI 字段异常，维护中可联系开发者咨询',
         'errorTips2': '视频创建失败，请检查您的提示词或图片信息提示词不允许出现暴力等内容',
         'errorTips3': '令牌配置有误，请检查您的令牌是否正确，如仍有疑问可加入钉钉群咨询',
@@ -24,6 +26,8 @@ fieldDecoratorKit.setDecorator({
         'refImage': 'Reference image',
         'size': 'Video size',   
         'seconds': 'Video duration',
+        'videoPromptTips': 'Please input video editing prompt',
+        'refImageTips': 'Please upload reference image file',
         'errorTips1': 'Model selection is required',
         'errorTips2': 'Video creation failed, please check your prompt or image information, prompt does not allow violent content',
         'errorTips3': 'The token configuration is wrong. Please check whether your token is correct. If you still have any questions, you can join the Dingding group for consultation.',
@@ -34,6 +38,8 @@ fieldDecoratorKit.setDecorator({
         'refImage': '参考画像',
         'size': 'ビデオサイズ',   
         'seconds': 'ビデオ时长',
+        'videoPromptTips': 'ビデオ編集ヒントを入力してください',
+        'refImageTips': '参考画像ファイルをアップロードしてください',
         'errorTips1': 'モデル選択は必須です',
         'errorTips2': 'ビデオ作成失敗、ヒントを確認してください。ヒントに人間画像をアップロードすることはできません。暴力などの内容を含めることはできません',
         'errorTips3': 'トークンの設定が間違っています。トークンが正しいかどうかを確認してください。まだ疑問がある場合は、DingDingグループに参加して相談してください。',
@@ -91,7 +97,7 @@ fieldDecoratorKit.setDecorator({
         title:  t('videoPrompt')
       },
       props: {
-       placeholder: '请输入视频编辑提示词',
+       placeholder: t('videoPromptTips'),
         enableFieldReference: true,
       },
       validator: {
@@ -103,7 +109,7 @@ fieldDecoratorKit.setDecorator({
       label: t('refImage'),
       component: FormItemComponent.FieldSelect,
       tooltips: {
-        title:  '请上传参考图片文件'
+        title:  t('refImageTips')
       },
       props: {
         mode: 'single',
@@ -119,7 +125,6 @@ fieldDecoratorKit.setDecorator({
       component: FormItemComponent.SingleSelect,
       props: {
         defaultValue: '1:1',
-        placeholder: '请选择尺寸',
         options: [
           {
             key: '1:1',
@@ -145,15 +150,14 @@ fieldDecoratorKit.setDecorator({
       component: FormItemComponent.SingleSelect,
        props: {
         defaultValue: '6',
-        placeholder: '请选择时长',
         options: [
           {
             key: '6',
-            title: '6秒',
+            title: '6s',
           },
           {
             key: '10',
-            title: '10秒',
+            title: '10s',
           },
           
         ]

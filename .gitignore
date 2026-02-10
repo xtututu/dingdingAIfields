@@ -1,0 +1,34 @@
+# 依赖目录
+**/node_modules/
+
+# 输出目录
+**/output/
+
+# 日志文件
+**/*.log
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE 相关文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统相关文件
+.DS_Store
+Thumbs.db
+
+# 构建产物
+build/
+dist/
+
+# 临时文件
+*.tmp
+*.temp
