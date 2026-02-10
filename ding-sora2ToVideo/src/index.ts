@@ -14,6 +14,8 @@ fieldDecoratorKit.setDecorator({
         'refImage': '参考图片',
         'size': '视频尺寸',
         'seconds': '视频时长',
+        'videoPromptTips': '请输入视频编辑提示词',
+        'refImageTips': '请上传参考图片文件',
         'errorTips1': 'AI 字段异常，维护中可联系开发者咨询',
         'errorTips2': '视频创建失败，请检查您的提示词或图片信息，Sora2不支持上传真人图像提示词不允许出现暴力等内容',
         'errorTips3': '令牌配置有误，请检查您的令牌是否正确，如仍有疑问可加入钉钉群咨询',
@@ -76,6 +78,12 @@ fieldDecoratorKit.setDecorator({
           {
             key: 'sora-2-hd',
             title: 'sora-2-hd',
+          },{
+            key: 'sora-2-stable',
+            title: 'sora-2-stable',
+          },{
+            key: 'sora-2-pro',
+            title: 'sora-2-pro',
           },
         ]
       },
@@ -91,7 +99,7 @@ fieldDecoratorKit.setDecorator({
         title:  t('videoPrompt')
       },
       props: {
-       placeholder: '请输入视频编辑提示词',
+       placeholder: t('videoPromptTips'),
         enableFieldReference: true,
       },
       validator: {
@@ -103,7 +111,7 @@ fieldDecoratorKit.setDecorator({
       label: t('refImage'),
       component: FormItemComponent.FieldSelect,
       tooltips: {
-        title:  '请上传参考图片文件'
+        title:  t('refImageTips'),
       },
       props: {
         mode: 'single',
@@ -119,7 +127,6 @@ fieldDecoratorKit.setDecorator({
       component: FormItemComponent.SingleSelect,
       props: {
         defaultValue: '720x1280',
-        placeholder: '请选择模型',
         options: [
           {
             key: '720x1280',
@@ -141,7 +148,6 @@ fieldDecoratorKit.setDecorator({
       component: FormItemComponent.SingleSelect,
        props: {
         defaultValue: '10',
-        placeholder: '请选择时长',
         options: [
           {
             key: '10',

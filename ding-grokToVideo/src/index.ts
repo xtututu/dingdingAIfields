@@ -67,28 +67,7 @@ fieldDecoratorKit.setDecorator({
     },
   // 定义AI 字段的入参
   formItems: [
-    // {
-    //   key: 'videoMethod',
-    //   label: t('videoMethod'),
-    //   component: FormItemComponent.SingleSelect,
-    //   props: {
-    //     defaultValue: 'sora-2',
-    //     placeholder: '请选择模型',
-    //     options: [
-    //       {
-    //         key: 'sora-2',
-    //         title: 'sora-2',
-    //       },
-    //       {
-    //         key: 'sora-2-hd',
-    //         title: 'sora-2-hd',
-    //       },
-    //     ]
-    //   },
-    //   validator: {
-    //     required: true,
-    //   }
-    // },
+    
     {
       key: 'videoPrompt',
       label: t('videoPrompt'),
