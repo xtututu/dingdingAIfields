@@ -164,7 +164,7 @@ fieldDecoratorKit.setDecorator({
         title:  '请上传参考图片文件'
       },
       props: {
-        mode: 'single',
+        mode: 'multiple',
         supportTypes: [FieldType.Attachment],
       },
       validator: {
@@ -178,7 +178,7 @@ fieldDecoratorKit.setDecorator({
   },
   // formItemParams 为运行时传入的字段参数，对应字段配置里的 formItems （如引用的依赖字段）
   execute: async (context: any, formItemParams: any) => {
-    const { imageMethod, imagePrompt, refImage, aspectRatio } = formItemParams;
+    const { imageMethod, imagePrompt, refImage, aspectRatio } = formItemParams;    
         
      /** 为方便查看日志，使用此方法替代console.log */
     function debugLog(arg: any) {
@@ -204,10 +204,20 @@ fieldDecoratorKit.setDecorator({
         
         const urls: string[] = [];
         
-        imageData.forEach((item: any) => {
-          if (item.tmp_url) {
-            // 清理URL中的反引号和空格
-            const cleanUrl = item.tmp_url.replace(/[`\s]/g, '');
+        // 处理嵌套数组结构
+        imageData.forEach((outerItem: any) => {
+          if (Array.isArray(outerItem)) {
+            // 遍历内层数组
+            outerItem.forEach((innerItem: any) => {
+              if (innerItem.tmp_url) {
+                // 清理URL中的反引号和空格
+                const cleanUrl = innerItem.tmp_url.replace(/[`\s]/g, '');
+                urls.push(cleanUrl);
+              }
+            });
+          } else if (outerItem.tmp_url) {
+            // 处理非嵌套结构（向后兼容）
+            const cleanUrl = outerItem.tmp_url.replace(/[`\s]/g, '');
             urls.push(cleanUrl);
           }
         });
@@ -232,6 +242,8 @@ fieldDecoratorKit.setDecorator({
             "aspectRatio": aspectRatio
           })
         };
+        
+        console.log(jsonRequestOptions);
         
 
         

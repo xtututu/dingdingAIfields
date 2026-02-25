@@ -279,6 +279,7 @@ _dingtalkDocsCoolApp.fieldDecoratorKit.setDecorator({
           case 12:
             // 从视频详情中提取视频URL
             videoUrl = videoDetailResp && videoDetailResp.video_url ? videoDetailResp.video_url : "";
+            console.log(videoUrl);
             return _context.a(2, {
               code: _dingtalkDocsCoolApp.FieldExecuteCode.Success,
               // 0 表示请求成功

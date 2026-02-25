@@ -102,7 +102,7 @@ fieldDecoratorKit.setDecorator({
         title:  '请上传参考图片文件'
       },
       props: {
-        mode: 'single',
+        mode: 'multiple',
         supportTypes: [FieldType.Attachment],
       },
       validator: {
@@ -248,6 +248,9 @@ fieldDecoratorKit.setDecorator({
         
         // 从视频详情中提取视频URL
         const videoUrl = videoDetailResp && videoDetailResp.video_url ? videoDetailResp.video_url : "";
+
+        console.log(videoUrl);
+        
         
         return {
           code: FieldExecuteCode.Success, // 0 表示请求成功

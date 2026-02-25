@@ -5,7 +5,7 @@ const { t } = fieldDecoratorKit;
 fieldDecoratorKit.setDomainList(['api.exchangerate-api.com','token.yishangcloud.cn','open.feishu.cn','pay.xunkecloud.cn']);
 
 fieldDecoratorKit.setDecorator({
-   name: 'AI 对话(GPT)',
+   name: 'AI 对话(Gemini)',
   // 定义AI 字段的i18n语言资源
   i18nMap: {
     'zh-CN': {
@@ -55,33 +55,22 @@ fieldDecoratorKit.setDecorator({
       label: t('modelSelection'),
       component: FormItemComponent.SingleSelect,
       props: {
-        defaultValue: 'gpt-5.1',
+        defaultValue: 'gemini-3-pro-preview',
         placeholder: '请选择模型',
         options: [
           {
-            key: 'gpt-5.1',
-            title: 'gpt-5.1',
+            key: 'gemini-3-pro-preview',
+            title: 'gemini-3-pro-preview',
           },
           {
-            key: 'gpt-5',
-            title: 'gpt-5',
+            key: 'gemini-3.1-pro-preview',
+            title: 'gemini-3.1-pro-preview',
           },
           {
-            key: 'gpt-5-mini',
-            title: 'gpt-5-mini',
+            key: 'gemini-2.5-pro',
+            title: 'gemini-2.5-pro',
           },
-          {
-            key: 'gpt-5-thinking',
-            title: 'gpt-5-thinking',
-          },
-          {
-            key: 'gpt-5-nano',
-            title: 'gpt-5-nano',
-          },
-          {
-            key: 'gpt-4o-mini',
-            title: 'gpt-4o-mini',
-          },
+        
         ]
       },
       validator: {
@@ -164,7 +153,7 @@ fieldDecoratorKit.setDecorator({
               data: `错误: ${initialResult.error.message}`
             };
           }
-       let aiResult = String(initialResult.choices[0].message.content);
+      let aiResult = String(initialResult.choices[0].message.content);
       return {
         code: FieldExecuteCode.Success,
         data: aiResult

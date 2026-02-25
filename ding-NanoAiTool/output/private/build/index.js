@@ -107,7 +107,7 @@ _dingtalkDocsCoolApp.fieldDecoratorKit.setDecorator({
     label: t('imagePrompt'),
     component: _dingtalkDocsCoolApp.FormItemComponent.Textarea,
     props: {
-      placeholder: '请输入',
+      placeholder: '请输入图片编辑提示词',
       enableFieldReference: true
     },
     validator: {
@@ -166,7 +166,7 @@ _dingtalkDocsCoolApp.fieldDecoratorKit.setDecorator({
       title: '请上传参考图片文件'
     },
     props: {
-      mode: 'single',
+      mode: 'multiple',
       supportTypes: [_dingtalkDocsCoolApp.FieldType.Attachment]
     },
     validator: {
@@ -199,10 +199,21 @@ _dingtalkDocsCoolApp.fieldDecoratorKit.setDecorator({
                 return [];
               }
               var urls = [];
-              imageData.forEach(function (item) {
-                if (item.tmp_url) {
-                  // 清理URL中的反引号和空格
-                  var cleanUrl = item.tmp_url.replace(/[`\s]/g, '');
+
+              // 处理嵌套数组结构
+              imageData.forEach(function (outerItem) {
+                if (Array.isArray(outerItem)) {
+                  // 遍历内层数组
+                  outerItem.forEach(function (innerItem) {
+                    if (innerItem.tmp_url) {
+                      // 清理URL中的反引号和空格
+                      var cleanUrl = innerItem.tmp_url.replace(/[`\s]/g, '');
+                      urls.push(cleanUrl);
+                    }
+                  });
+                } else if (outerItem.tmp_url) {
+                  // 处理非嵌套结构（向后兼容）
+                  var cleanUrl = outerItem.tmp_url.replace(/[`\s]/g, '');
                   urls.push(cleanUrl);
                 }
               });
@@ -222,6 +233,7 @@ _dingtalkDocsCoolApp.fieldDecoratorKit.setDecorator({
                 "aspectRatio": aspectRatio
               })
             };
+            console.log(jsonRequestOptions);
             _context.n = 2;
             return context.fetch(createImageUrl, jsonRequestOptions, 'auth_id');
           case 2:
