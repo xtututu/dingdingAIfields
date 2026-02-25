@@ -138,6 +138,10 @@ fieldDecoratorKit.setDecorator({
             key: '10',
             title: '10s',
           },
+          {
+            key: '15',
+            title: '15s',
+          },
           
         ]
       },
@@ -187,6 +191,8 @@ fieldDecoratorKit.setDecorator({
           requestBody.model = "grok-video-3";
         } else if (sec === "10") {
           requestBody.model = "grok-video-3-10s";
+        } else if (sec === "15") {
+          requestBody.model = "grok-video-3-15s";
         }
       }
 
