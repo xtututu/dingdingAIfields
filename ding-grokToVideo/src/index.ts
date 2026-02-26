@@ -19,6 +19,7 @@ fieldDecoratorKit.setDecorator({
         'errorTips1': 'AI 字段异常，维护中可联系开发者咨询',
         'errorTips2': '视频创建失败，请检查您的提示词或图片信息提示词不允许出现暴力等内容',
         'errorTips3': '令牌配置有误，请检查您的令牌是否正确，如仍有疑问可加入钉钉群咨询',
+        'errorTips4': '视频生成超时，请稍后重试',
       },
       'en-US': {
         // 'videoMethod': 'Model selection',
@@ -31,6 +32,7 @@ fieldDecoratorKit.setDecorator({
         'errorTips1': 'Model selection is required',
         'errorTips2': 'Video creation failed, please check your prompt or image information, prompt does not allow violent content',
         'errorTips3': 'The token configuration is wrong. Please check whether your token is correct. If you still have any questions, you can join the Dingding group for consultation.',
+        'errorTips4': 'Video generation timeout, please try again later',
       },
       'ja-JP': {
         // 'videoMethod': 'モデル選択',
@@ -43,6 +45,7 @@ fieldDecoratorKit.setDecorator({
         'errorTips1': 'モデル選択は必須です',
         'errorTips2': 'ビデオ作成失敗、ヒントを確認してください。ヒントに人間画像をアップロードすることはできません。暴力などの内容を含めることはできません',
         'errorTips3': 'トークンの設定が間違っています。トークンが正しいかどうかを確認してください。まだ疑問がある場合は、DingDingグループに参加して相談してください。',
+        'errorTips4': 'ビデオ生成タイムアウト、後でもう一度お試しください',
       },
   },
   errorMessages: {
@@ -50,6 +53,7 @@ fieldDecoratorKit.setDecorator({
     'error1': t('errorTips1'),
     'error2': t('errorTips2'),
     'error3': t('errorTips3'),
+    'error4': t('errorTips4'),
   },
   authorizations: 
     {
@@ -304,7 +308,7 @@ fieldDecoratorKit.setDecorator({
 
       return {
         code: FieldExecuteCode.Error,
-        errorMessage: 'error1'
+        errorMessage: 'error4'
       };
     }
   },
