@@ -43,6 +43,7 @@ fieldDecoratorKit.setDecorator({
     // 定义错误信息集合
     'error2': t('errorTips2'),
     'error1': t('errorTips1'),
+    'error3': t('errorTips3'),
   },
   authorizations: 
     {
@@ -317,7 +318,7 @@ fieldDecoratorKit.setDecorator({
       if (String(e).includes('timeout')) { 
         return {
           code: FieldExecuteCode.Error, 
-          errorMessage: 'errorTips3',
+          errorMessage: 'error3',
         };
       }
 
@@ -336,7 +337,7 @@ fieldDecoratorKit.setDecorator({
       }
        return {
           code: FieldExecuteCode.Error, 
-          errorMessage: 'error1',
+          errorMessage: 'error3',
         };
     }
   }
