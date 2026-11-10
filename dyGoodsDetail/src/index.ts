@@ -7,7 +7,7 @@ const { t } = fieldDecoratorKit;
 fieldDecoratorKit.setDomainList(['api.exchangerate-api.com','token.yishangcloud.cn','open.feishu.cn','pay.xunkecloud.cn']);
 
 fieldDecoratorKit.setDecorator({
-  name: '抖音视频数据提取',
+  name: '抖音商品数据采集',
   // 定义AI 字段的i18n语言资源
   i18nMap: {
     'zh-CN': {
